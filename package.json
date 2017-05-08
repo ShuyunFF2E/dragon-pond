@@ -1,0 +1,39 @@
+{
+  "name": "dragon-cave",
+  "version": "1.0.0",
+  "description": "dragon compiler collection",
+  "author": "Shuyun FED Team",
+  "private": true,
+  "scripts": {
+    "start": "",
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "chai": "^3.5.0",
+    "css-loader": "^0.28.1",
+    "eslint": "^3.19.0",
+    "eslint-config-shuyun": "^2.0.1",
+    "humps": "^2.0.0",
+    "js-beautify": "^1.6.12",
+    "karma": "^1.4.1",
+    "karma-coverage": "^1.1.1",
+    "karma-mocha": "^1.3.0",
+    "mocha": "^3.2.0",
+    "sinon": "^2.1.0",
+    "sinon-chai": "^2.8.0"
+  },
+  "engines": {
+    "node": ">= 4.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
