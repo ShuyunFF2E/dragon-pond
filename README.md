@@ -18,5 +18,6 @@ node examples/ast-transfromer
 ```bash
 cd examples/vue-app
 npm i
+npm start
 node ../compiler
 ```
