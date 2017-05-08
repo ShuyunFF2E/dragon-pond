@@ -1,6 +1,6 @@
 # dragon-cave
 
-a collection of dragon compiler
+a collection of dragon compiler,based on babel plugin system
 
 ## reference
 [babel-handbook](https://github.com/thejameskyle/babel-handbook/blob/master/translations/zh-Hans/plugin-handbook.md#toc-babel-types)
