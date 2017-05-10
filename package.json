@@ -45,6 +45,9 @@
     "require": [
       "babel-register"
     ],
+    "source": [
+      "src/**/*.js"
+    ],
     "babel": {
       "babelrc": true,
       "env": {
