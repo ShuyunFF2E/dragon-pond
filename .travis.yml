@@ -8,4 +8,4 @@ script:
   - npm test
 
 after_success:
-	- npm run codecov
+  - npm run codecov
