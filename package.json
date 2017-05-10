@@ -61,11 +61,16 @@
     "include": [
       "src/**/*.js"
     ],
+    "exclude": [
+      "**/node_modules/**",
+      "examples/**",
+      "**/__tests__/**"
+    ],
+    "all": true,
     "require": [
       "babel-register"
     ],
     "sourceMap": false,
-    "instrument": false,
-    "all": true
+    "instrument": false
   }
 }
