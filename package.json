@@ -3,40 +3,65 @@
   "version": "1.0.0",
   "description": "dragon compiler collection",
   "author": "Shuyun FED Team",
-  "private": true,
   "scripts": {
-    "start": "",
+    "start": "cross-env NODE_ENV=test ava -w",
+    "test": "cross-env NODE_ENV=test nyc report --reporter=html ava",
+    "codecov": "cross-env NODE_ENV=test nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "lint": "eslint src && nyc --check-coverage --lines 80 --functions 80 --branches 80 ava",
+    "prepush": "npm run lint"
   },
   "dependencies": {},
   "devDependencies": {
-    "babel-core": "^6.22.1",
+    "ava": "^0.19.1",
+    "babel-generator": "^6.24.1",
+    "babel-plugin-istanbul": "^4.1.3",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.24.1",
-    "chai": "^3.5.0",
-    "css-loader": "^0.28.1",
+    "babel-template": "^6.24.1",
+    "babel-traverse": "^6.24.1",
+    "babel-types": "^6.24.1",
+    "babylon": "^6.17.0",
+    "codecov": "^2.2.0",
+    "cross-env": "^4.0.0",
     "eslint": "^3.19.0",
-    "eslint-config-shuyun": "^2.0.1",
+    "eslint-config-shuyun": "^2.0.2",
     "humps": "^2.0.0",
+    "husky": "^0.13.3",
     "js-beautify": "^1.6.12",
-    "karma": "^1.4.1",
-    "karma-coverage": "^1.1.1",
-    "karma-mocha": "^1.3.0",
-    "mocha": "^3.2.0",
-    "sinon": "^2.1.0",
-    "sinon-chai": "^2.8.0"
+    "nyc": "^10.3.2"
   },
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
   "eslintConfig": {
-    "extends": "shuyun-react"
+    "extends": "shuyun"
+  },
+  "ava": {
+    "verbose": true,
+    "require": [
+      "babel-register"
+    ],
+    "babel": {
+      "babelrc": true,
+      "env": {
+        "test": {
+          "sourceMaps": "inline"
+        }
+      }
+    }
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.js"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "sourceMap": false,
+    "instrument": false,
+    "all": true
   }
 }

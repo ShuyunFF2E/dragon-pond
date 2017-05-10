@@ -6,6 +6,7 @@
 
 import humps from 'humps';
 import { html as htmlBeautify } from 'js-beautify';
+import { beatifyCodeStyle } from './meta';
 
 /**
  * 根据配置生成组件树
@@ -25,11 +26,11 @@ function generateTemplate(config) {
 
 		if (attrs) {
 
-			for (let attr in attrs) {
+			for (const attr in attrs) {
 
 				if (attrs.hasOwnProperty(attr)) {
 					const value = attrs[attr];
-					componentTree += ` ${humps.decamelize(attr, { separator: '-' })}=${'"' + value + '"' }`;
+					componentTree += ` ${humps.decamelize(attr, { separator: '-' })}="${value}"`;
 				}
 			}
 		}
@@ -47,7 +48,7 @@ function generateTemplate(config) {
 		componentTree += `</${componentName}>`;
 	}
 
-	return htmlBeautify(componentTree);
+	return htmlBeautify(componentTree, beatifyCodeStyle);
 
 }
 
