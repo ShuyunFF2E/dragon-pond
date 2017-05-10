@@ -7,7 +7,7 @@
     "start": "cross-env NODE_ENV=test ava -w",
     "test": "cross-env NODE_ENV=test nyc report --reporter=html ava",
     "codecov": "cross-env NODE_ENV=test nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "lint": "eslint src && nyc --check-coverage --lines 80 --functions 80 --branches 80 ava",
+    "lint": "eslint ./src && nyc --check-coverage --lines 80 --functions 80 --branches 80 ava",
     "prepush": "npm run lint"
   },
   "dependencies": {},
@@ -27,7 +27,6 @@
     "cross-env": "^4.0.0",
     "eslint": "^3.19.0",
     "eslint-config-shuyun": "^2.1.0",
-    "eslint-config-shuyun": "^2.0.2",
     "humps": "^2.0.0",
     "husky": "^0.13.3",
     "js-beautify": "^1.6.12",
@@ -38,7 +37,6 @@
     "npm": ">= 3.0.0"
   },
   "eslintConfig": {
-    "extends": "shuyun"
     "extends": "shuyun"
   },
   "ava": {
