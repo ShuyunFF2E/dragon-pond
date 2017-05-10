@@ -26,6 +26,7 @@
     "codecov": "^2.2.0",
     "cross-env": "^4.0.0",
     "eslint": "^3.19.0",
+    "eslint-config-shuyun": "^2.1.0",
     "eslint-config-shuyun": "^2.0.2",
     "humps": "^2.0.0",
     "husky": "^0.13.3",
@@ -37,6 +38,7 @@
     "npm": ">= 3.0.0"
   },
   "eslintConfig": {
+    "extends": "shuyun"
     "extends": "shuyun"
   },
   "ava": {
