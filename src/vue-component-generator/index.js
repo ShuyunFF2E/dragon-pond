@@ -7,7 +7,7 @@
 import fs from 'fs';
 import bone from './bone';
 import muscle from './muscle';
-import { beatifyCodeStyle, modelDir } from './meta';
+import { beatifyCodeStyle, modelDir } from './constants';
 import { html_beautify as htmlBeautify } from 'js-beautify';
 
 export default config => {

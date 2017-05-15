@@ -29,7 +29,9 @@
 	export default {
 		data() {
 			return {
-				data: []
+				data: [],
+				name: null,
+				age: 10
 			};
 		},
 

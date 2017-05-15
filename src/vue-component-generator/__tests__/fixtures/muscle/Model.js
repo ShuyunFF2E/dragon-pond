@@ -8,6 +8,9 @@ export default class Model {
 
 	data = [];
 
+	name = null;
+	age = 10;
+
 	search(query) {
 		// eslint-disable-next-line no-console
 		console.log(query);

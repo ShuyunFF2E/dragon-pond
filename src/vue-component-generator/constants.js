@@ -12,3 +12,13 @@ export const beatifyCodeStyle = {
 };
 
 export const modelDir = path.join(__dirname, '__tests__/fixtures/muscle');
+
+export const vueMuscleTemplate = `
+	export default {
+	
+		data() {
+			return DATA;
+		},
+	
+		methods: METHODS
+	};`;

@@ -6,7 +6,7 @@
 
 import humps from 'humps';
 import { html as htmlBeautify } from 'js-beautify';
-import { beatifyCodeStyle } from './meta';
+import { beatifyCodeStyle } from './constants';
 
 /**
  * 根据配置生成组件树

@@ -9,19 +9,10 @@ import traverse from 'babel-traverse';
 import template from 'babel-template';
 import generate from 'babel-generator';
 import * as t from 'babel-types';
-import { beatifyCodeStyle } from './meta';
+import { beatifyCodeStyle, vueMuscleTemplate } from './constants';
 import { js_beautify as jsBeautify } from 'js-beautify';
 
-const buildRequire = template(`
-	export default {
-	
-		data() {
-			return DATA;
-		},
-	
-		methods: METHODS
-	};
-`, { sourceType: 'module' });
+const buildRequire = template(vueMuscleTemplate, { sourceType: 'module' });
 
 export default modelCode => {
 
