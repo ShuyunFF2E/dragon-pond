@@ -5,7 +5,7 @@
   "author": "Shuyun FED Team",
   "scripts": {
     "start": "cross-env NODE_ENV=test ava -w",
-    "test": "cross-env NODE_ENV=test nyc ava",
+    "test": "cross-env NODE_ENV=test nyc ava -v",
     "report": "nyc report --reporter=html",
     "codecov": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "lint": "eslint ./src && nyc --check-coverage --lines 80 --functions 80 --branches 80 npm test",
@@ -41,7 +41,6 @@
     "extends": "shuyun"
   },
   "ava": {
-    "verbose": true,
     "require": [
       "babel-register"
     ],
