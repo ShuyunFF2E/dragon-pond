@@ -26,19 +26,35 @@
 
 </template>
 <script>
+	import http from 'axios';
 	export default {
 		data() {
 			return {
-				data: [],
-				name: null,
-				age: 10
+				query: {
+					name: null,
+					address: null,
+					date: null
+				},
+				userData: {
+					name: null,
+					age: 10
+				}
 			};
 		},
 
 		methods: {
-			search(query) {
-				// eslint-disable-next-line no-console
-				console.log(query);
+			async getUserData(id) {
+				this.userData = await http.get(`/users/${id}`);
+				return this.userData;
+			},
+
+			async search(query) {
+				this.userData = await http.get('/resources/', {
+					params: {
+						...query
+					}
+				});
+				return this.userData;
 			}
 
 		}

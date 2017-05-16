@@ -2,6 +2,9 @@ export default {
 
 	component: 'section',
 	model: 'Model.js',
+	lifecycle: {
+		mounted: 'getUserData("kuitos")'
+	},
 	children: [
 		{
 			component: 'ElForm',

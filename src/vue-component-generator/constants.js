@@ -14,6 +14,7 @@ export const beatifyCodeStyle = {
 export const modelDir = path.join(__dirname, '__tests__/fixtures/muscle');
 
 export const vueMuscleTemplate = `
+	IMPORT_MODULES
 	export default {
 	
 		data() {
@@ -21,4 +22,5 @@ export const vueMuscleTemplate = `
 		},
 	
 		methods: METHODS
+		
 	};`;

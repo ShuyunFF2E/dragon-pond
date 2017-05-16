@@ -18,36 +18,52 @@ export default modelCode => {
 
 	const modelAst = parse(modelCode, {
 		sourceType: 'module',
-		plugins: ['classProperties']
+		plugins: ['doExpressions', 'objectRestSpread', 'decorators', 'classProperties', 'asyncGenerators', 'functionBind', 'functionSent', 'dynamicImport']
 	});
 
-	const classProperties = [];
-	const classMethods = [];
+	const objectPropertyNodes = [];
+	const objectMethodNodes = [];
+	const importModuleNodes = [];
 
 	// 遍历 model 的语法树，将 classProperty 和 classMethod 保存起来
 	traverse(modelAst, {
 
-		ClassProperty(p) {
-			const { key, value } = p.node;
-			classProperties.push(t.objectProperty(key, value));
+		ImportDeclaration({ node }) {
+			importModuleNodes.push(node);
 		},
 
-		ClassMethod(p) {
-			const { kind, key, params, body, computed } = p.node;
-			classMethods.push(t.objectMethod(kind, key, params, body, computed));
+		ClassProperty({ node }) {
+			const { key, value, computed, shorthand, decorators } = node;
+			objectPropertyNodes.push(t.objectProperty(key, value, computed, shorthand, decorators));
+		},
+
+		ClassMethod({ node }) {
+			const { kind, key, params, body, computed, async, decorators, generator, returnType, typeParameters } = node;
+			const methodNode = t.objectMethod(kind, key, params, body, computed);
+			methodNode.async = async;
+			methodNode.decorators = decorators;
+			methodNode.generator = generator;
+			methodNode.returnType = returnType;
+			methodNode.typeParameters = typeParameters;
+			objectMethodNodes.push(methodNode);
 		}
 
 	});
 
 	// 构建
-	const propertiesNodes = t.objectExpression(classProperties);
-	const methodsNodes = t.objectExpression(classMethods);
+	const dataNodes = t.objectExpression(objectPropertyNodes);
+	const methodsNodes = t.objectExpression(objectMethodNodes);
 
-	const ast = buildRequire({
-		DATA: propertiesNodes,
-		METHODS: methodsNodes
-	});
+	const ast = {
+		type: 'Program',
+		body: buildRequire({
+			IMPORT_MODULES: importModuleNodes.length ? importModuleNodes : t.emptyStatement(),
+			DATA: dataNodes,
+			METHODS: methodsNodes
+		})
+	};
 
-	return jsBeautify(generate(ast).code, beatifyCodeStyle);
+	const { code } = generate(ast, { comments: false });
+	return jsBeautify(code, beatifyCodeStyle);
 
 };
