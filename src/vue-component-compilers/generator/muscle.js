@@ -10,16 +10,14 @@ import template from 'babel-template';
 import generate from 'babel-generator';
 import * as t from 'babel-types';
 import { beatifyCodeStyle, vueMuscleTemplate } from './constants';
+import { parserOptions } from '../../constants';
 import { js_beautify as jsBeautify } from 'js-beautify';
 
 const buildRequire = template(vueMuscleTemplate, { sourceType: 'module' });
 
 export default modelCode => {
 
-	const modelAst = parse(modelCode, {
-		sourceType: 'module',
-		plugins: ['doExpressions', 'objectRestSpread', 'decorators', 'classProperties', 'asyncGenerators', 'functionBind', 'functionSent', 'dynamicImport']
-	});
+	const modelAst = parse(modelCode, parserOptions);
 
 	const objectPropertyNodes = [];
 	const objectMethodNodes = [];

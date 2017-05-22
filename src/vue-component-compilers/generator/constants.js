@@ -11,7 +11,15 @@ export const beatifyCodeStyle = {
 	'end_with_newline': true
 };
 
-export const modelDir = path.join(__dirname, '__tests__/fixtures/muscle');
+let modelDir = path.join(path.dirname(require.main.filename));
+Object.defineProperty(exports, 'modelDir', {
+	get() {
+		return modelDir;
+	}
+});
+export function setModelDir(modelAbsolutePath) {
+	modelDir = modelAbsolutePath;
+}
 
 export const vueMuscleTemplate = `
 	IMPORT_MODULES

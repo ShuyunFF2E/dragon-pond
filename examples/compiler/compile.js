@@ -6,7 +6,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import generate from '../../src/vue-component-generator/bone';
+import generate from '../../src/vue-component-compilers/generator/bone';
 import config from './config.js';
 
 fs.writeFile(path.resolve(__dirname, '../vue-app/src/components/template.html'), generate(config), 'utf-8', () => console.log('success'));
