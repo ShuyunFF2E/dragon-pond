@@ -14,7 +14,7 @@ a collection of dragon compiler,based on babel plugin system
 
 ## check examples
 
-* ast-tranformer
+* ast-transformer
 ```bash
 node examples/ast-transfromer
 ```
