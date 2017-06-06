@@ -12,12 +12,13 @@ import { beatifyCodeStyle } from './constants';
  * 根据配置生成组件树
  * 生成的 html 标签以 '-' 分隔
  * @param config
+ * @param middleware
  */
-function generateTemplate(config) {
+export default function bone(config, middleware = v => v) {
 
 	let componentTree = '';
 
-	const { component, attrs, text, children } = config;
+	const { component, attrs, text, children } = middleware(config);
 	const componentName = humps.decamelize(component, { separator: '-' });
 
 	if (component) {
@@ -42,7 +43,7 @@ function generateTemplate(config) {
 		}
 
 		if (children) {
-			children.forEach(child => componentTree += generateTemplate(child));
+			children.forEach(child => componentTree += bone(child, middleware));
 		}
 
 		componentTree += `</${componentName}>`;
@@ -51,5 +52,3 @@ function generateTemplate(config) {
 	return htmlBeautify(componentTree, beatifyCodeStyle);
 
 }
-
-export default generateTemplate;
