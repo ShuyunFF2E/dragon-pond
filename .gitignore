@@ -11,4 +11,3 @@ node_modules
 coverage/
 .nyc_output
 examples/vue-app/yarn.lock
-lib/
