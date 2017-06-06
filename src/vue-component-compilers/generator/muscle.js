@@ -4,7 +4,7 @@
  * @since 2017-05-08
  */
 
-`import _ from 'lodash';
+import _ from 'lodash';
 
 export default function muscle(ModelClass) {
 
