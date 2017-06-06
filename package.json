@@ -17,6 +17,7 @@
     "babel-traverse": "^6.24.1",
     "babel-types": "^6.24.1",
     "babylon": "^6.17.0",
+    "humps": "^2.0.0",
     "js-beautify": "^1.6.12",
     "lodash": "^4.17.4",
     "vue-template-compiler": "^2.3.3"
@@ -34,7 +35,6 @@
     "cross-env": "^4.0.0",
     "eslint": "^3.19.0",
     "eslint-config-shuyun": "^2.1.0",
-    "humps": "^2.0.0",
     "husky": "^0.13.3",
     "nyc": "^10.3.2"
   },
