@@ -23,7 +23,8 @@
     "vue-template-compiler": "^2.3.3"
   },
   "peerDependencies": {
-    "babel-cli": "^6.24.1"
+    "babel-cli": "^6.24.1",
+    "cross-env": "^4.0.0"
   },
   "devDependencies": {
     "ava": "^0.19.1",
