@@ -9,8 +9,7 @@
     "test": "cross-env NODE_ENV=test nyc ava -v",
     "report": "nyc report --reporter=html",
     "codecov": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "lint": "eslint ./src && nyc --check-coverage --lines 70 --functions 70 --branches 70 npm test",
-    "prepush": "npm run lint",
+    "lint": "eslint ./src && nyc --check-coverage --lines 80 --functions 80 --branches 80 npm test",
     "postinstall": "cross-env NODE_ENV=production babel src --out-dir ./ --ignore **/__tests__"
   },
   "dependencies": {
