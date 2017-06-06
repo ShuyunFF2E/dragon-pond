@@ -9,7 +9,7 @@
     "test": "cross-env NODE_ENV=test nyc ava -v",
     "report": "nyc report --reporter=html",
     "codecov": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "lint": "eslint ./src && nyc --check-coverage --lines 80 --functions 80 --branches 80 npm test",
+    "lint": "eslint ./src && nyc --check-coverage --lines 70 --functions 70 --branches 70 npm test",
     "prepush": "npm run lint",
     "postinstall": "cross-env NODE_ENV=production babel src --out-dir ./ --ignore **/__tests__"
   },
@@ -23,8 +23,12 @@
     "lodash": "^4.17.4",
     "vue-template-compiler": "^2.3.3"
   },
+  "peerDependencies": {
+    "babel-cli": "^6.24.1"
+  },
   "devDependencies": {
     "ava": "^0.19.1",
+    "babel-cli": "^6.24.1",
     "babel-plugin-istanbul": "^4.1.3",
     "babel-plugin-lodash": "^3.2.11",
     "babel-plugin-transform-runtime": "^6.23.0",
